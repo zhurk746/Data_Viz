@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
+    <script>src="script.js" </script>
+</head>
+<h2>The Uncertainty of Attraction</h2>
+<body>
+<p>This mapping visualization explores how individuals from countries around the world ranked the following 6 questions when asked about the qualities they value when looking for a partner: 
+   <br> 1. They are good looking
+    <br> 2. They are intelligent
+    <br> 3. They have a personality I like
+    <br> 4. They have a sense of humor I like
+    <br> 5. They have similar interests to me
+    <br> 6. They have/make a decent amount of money
+    
+    <br> The two maps depict the ranking preferences of men and women from different countries around the world with the country color representing the question that the maximum percentage of participants ranked first when surveyed. </p>
+
+<h2>Around the World</h2>
+<img src="Color Legend for Class.png" alt="Legend"/>
+<h3>Preferred Characteristic among Men in each Country</h3>
+<img src="FinalMap1.png" alt="Men" />
+<h3>Preferred Characteristic among Women in each Country </h3>
+<img src="FinalMap2.png" alt=Women" />
+<script>
+    d3.select('h2').style("color","purple")
+    d3.select('h3').style("color", "purple")
+    d3.select('p').style("color", "pink")
+    d3.csv("/Desktop/DVIA Fall 2020/LooksData.csv", function(data){
+        console.log(data)
+    });
+    </script>
+</body>
+</html>
