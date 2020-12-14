@@ -1,40 +1,328 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html lang="en">
+<style>
+  .content {
+  max-width: 960px;
+  margin: auto;
+}
+body {
+  font-family: Arial;
+  margin: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 10px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: start;
+  background-color: #222;
+  padding: 2px 12px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 1450px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 960px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
 <head >
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
     <script>src="script.js" </script>
 </head>
+<div class="content">
 <h2>The Uncertainty of Attraction</h2>
+<h3>Around the World</h3>
+<p>The series of visualizations below were created during the exploration of a dataset that contained information regarding how individuals from countries around the world ranked the following 6 questions when asked about the qualities they value when looking for a partner:
+</p>
+<img src="finalColorCodes.png"/>
+<p>The first series of visualizations was a mapping exercise performed in order to determine which question was ranked first by the highest percentage of men and women around the world. Although, the majority of men ranked personality as a characteristic they value most there was more variety in Men's preferences as compared to women's. The fill of each country corresponds to the color codes in the visual above.</p>
 <body style="background-color:black;">
-<p>This mapping visualization explores how individuals from countries around the world ranked the following 6 questions when asked about the qualities they value when looking for a partner: 
-   <br> 1. They are good looking
-    <br> 2. They are intelligent
-    <br> 3. They have a personality I like
-    <br> 4. They have a sense of humor I like
-    <br> 5. They have similar interests to me
-    <br> 6. They have/make a decent amount of money
-    
-    <br> The two maps depict the ranking preferences of men and women from different countries around the world with the country color representing the question that the maximum percentage of participants ranked first when surveyed. </p>
-<h3>Ranking Differences across Nationalities and Genders</h3>
-<img src="FinalPieCharts.png"/>
-<h3>Preferences and Ranking Information of American Men and Women</h3>
-<img src="stackedBarChart.png"/>
-<h2>Around the World</h2>
-<img src="Color Legend for Class.png" />
-<h3>Preferred Characteristic among Men in each Country</h3>
-<img src="FinalMap1.png" />
-<h3>Preferred Characteristic among Women in each Country </h3>
-<img src="FinalMap2.png"/>
 
+  <div class="container">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 2</div>
+      <img src="finalMenMap.png" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">1 / 2</div>
+      <img src="finalWomenMap.png" style="width:100%" >
+    </div>
+      
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="FinalMap1.png" style="width:100%" onclick="currentSlide(2)" alt="This visualization depicts which question was ranked first amongst the highest percentage of men around the world.">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="FinalMap2.png" style="width:100%" onclick="currentSlide(3)" alt="This visualization depicts which question was ranked first amongst the highest percentage of women around the world.">
+      </div>  
+    </div>
+  </div>
+<h3>Men and Women</h2>
+<p> The next visual shows a series of pie charts that compares percentages in an attempt to highlight gender or cultural differences centered around how men and women across various nationalities ranked their most preffered trait.
+This view was filtered for questions that were ranked first or most preferred among participants in each country.
+</p>
+<img src="colorCodesPieCharts.png"/>
+<!-- Trigger the Modal -->
+<img id="myImg" src="finalPieCharts.png" alt="Pie Charts comparing the percent difference of their highest ranked trait" style="width:100%;max-width:960px">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+
+
+<h3>American Men and Women Area Chart</h3>
+<p>The area chart below depicts the preferences of American men and women dependent on how they ranked these six traits.</p>
+<img src="colorLegendAll.png">
+<img src="areaChart.png"/>
+<h3>American Men and Women Bar Chart</h3>
+<p>The stacked bar chart below shows the percentage breakdown of how each characteristic was ranked amongst American Men and Women. </p>
+<img src="classBarChart.png"/>
+<h3>American Men and Women Abstract Line Chart</h3>
+<p>The visualization below shows the difference between how American Men and Women ranked each of the questions through a series of line symbols.</p>
+<img src="finalLineChart.png"/>
 <script>
-    d3.selectAll('h3').style("color", "white")
-    d3.selectAll('h2').style("color", "hotpink")
-    d3.selectAll('p').style("color", "white")
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+    d3.selectAll('h3')
+    .style("color", "#FBEB49")
+    .style("font-family","Arial")
+    .style("font-size", "20px")
+    d3.selectAll('h2')
+    .style("color", "hotpink")
+    .style("font-family", "Arial")
+    .style("font-size", "48px")
+    d3.selectAll('h4')
+    .style("color","white")
+    .style("font-family", "Arial")
+    d3.selectAll('p')
+    .style("color", "white")
+    .style("font-family", "Arial")
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 </script>
-<div>id='my_dataviz'</div>
+<div id='my_dataviz'></div>
 <script>
+  
    // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 20, left: 50},
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -46,12 +334,43 @@ var svg = d3.select("#my_dataviz")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
-
 // Parse the Data
-var data=d3.csv("LooksData.csv", function (data){
-console.log(data)
-});
-//});
+d3.csv("dataAmericanMen.csv", function (d){
+  var filterData = d.filter(d=>{
+    return d.Nationality == "American" && d.Gender== "Men" && d.Rank == "1";
+  })
+  console.log(filterData);  
+  // Now I can use this dataset:
+  function(data) {
+
+// Add X axis --> it is a date format
+var x = d3.scaleTime()
+  .domain(d3.extent(data, function(d) { return d.Question; }))
+  .range([ 0, width ]);
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x));
+
+// Add Y axis
+var y = d3.scaleLinear()
+  .domain([0, d3.max(data, function(d) { return + parseFloat(d.Percentage); })])
+  .range([ height, 0 ]);
+svg.append("g")
+  .call(d3.axisLeft(y));
+
+// Add the line
+svg.append("path")
+  .datum(data)
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr("d", d3.line()
+    .x(function(d) { return x(d.Question) })
+    .y(function(d) { return y(parseFloat(d.Percentage)) })
+    )
+
+})
 </script>
+</div>
 </body>
 </html>
